@@ -1,3 +1,9 @@
+show variables like '%datadir%';
+
+show global variables like "%datadir%";
+
+select * from `performance_schema`.`global_variables` where VARIABLE_NAME like '%datadir%';
+
 show character set like 'utf8%';
 select * from information_schema.CHARACTER_SETS where CHARACTER_SET_NAME like 'utf8%';
 select * from information_schema.COLLATIONS;
