@@ -5,8 +5,9 @@ create table if not exists `account_book`.`ac_book`(
 	`purchaser` tinyint unsigned not null comment '购买人，对应 ac_user 表的 id 字段',
 	`goods` varchar(255) not null comment '购买的商品',
 	`weight` not null comment '购买多少',
-	`unit` tinyint unsigned not null comment '单位',
+	`weight_unit` tinyint unsigned not null comment '重量单位',
 	`money` not null comment '用的多少钱',
+	`money_unit` tinyint unsigned not null comment '钱单位',
 	`buy_datetime` not null comment '购买时间',
 	`description` not null comment '购买商品相关描述',
 	`register_datetime` not null comment '登记时间：也就是写到数据库的时间'
