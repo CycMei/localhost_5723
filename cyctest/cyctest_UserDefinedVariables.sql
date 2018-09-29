@@ -5,6 +5,7 @@ select @ids;
 
 set @idname = 'id';
 set @s = concat("select ", @idname, " from cyctest.acyctest_books;");
+select @s;
 PREPARE stmt FROM @s;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
