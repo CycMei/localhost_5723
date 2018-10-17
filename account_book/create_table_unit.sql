@@ -14,5 +14,6 @@ comment '单位表'
 insert into `account_book`.`ac_unit`(`symbol`, `description`) values
 ('g', '克'),
 ('kg', '千克'),
-('￥', '元')
+('￥', '元'),
+('','其他')
 ;
