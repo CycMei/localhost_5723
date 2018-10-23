@@ -1,3 +1,12 @@
+select * from mysql.proc where db = 'account_book' 
+into outfile 'C:\\Users\\czl65011\\Documents\\Navicat\\MySQL\\servers\\localhost_5723\\account_book\\fun\\fun.txt' 
+fields terminated by ',' 
+enclosed by '"' 
+lines terminated by '\r\n';
+
+SHOW VARIABLES LIKE "secure_file_priv";
+
+
 drop table if exists `account_book`.`ac_book`;
 
 create table if not exists `account_book`.`ac_book`(
