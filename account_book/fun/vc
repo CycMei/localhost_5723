@@ -1,0 +1,53 @@
+"account_book","BatchInsert","FUNCTION","BatchInsert","SQL","CONTAINS_SQL","NO","DEFINER","pc tinyint, inStr varchar(100), format varchar(10)","tinyint(4)","begin\
+	declare idx tinyint default 0;\
+	declare cnt tinyint default 0;\
+	set cnt = GetStrLen(inStr, format);\
+	while idx < cnt\
+	do\
+		set idx = idx + 1;\
+		insert into `account_book`.`ac_agro_vegetable`(`parent_category`,`category_name`,`description`) values\
+			(pc, GetEleIndexOf(inStr, format, idx), '');\
+	end while;\
+	return 0;\
+end","root@localhost","2018-10-23 16:53:05","2018-10-23 16:53:05","STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION","","utf8","utf8_general_ci","utf8_general_ci","begin\
+	declare idx tinyint default 0;\
+	declare cnt tinyint default 0;\
+	set cnt = GetStrLen(inStr, format);\
+	while idx < cnt\
+	do\
+		set idx = idx + 1;\
+		insert into `account_book`.`ac_agro_vegetable`(`parent_category`,`category_name`,`description`) values\
+			(pc, GetEleIndexOf(inStr, format, idx), '');\
+	end while;\
+	return 0;\
+end"
+"account_book","GetEleIndexOf","FUNCTION","GetEleIndexOf","SQL","CONTAINS_SQL","NO","DEFINER","inStr varchar(1000), format varchar(10), idx tinyint","varchar(255) CHARSET utf8","begin\
+	declare res varchar(255) default '';\
+	set res = reverse( substring_index ( reverse( substring_index(inStr, format, idx) ), format, 1) );\
+	return res;\
+end","root@localhost","2018-10-23 16:53:05","2018-10-23 16:53:05","STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION","","utf8","utf8_general_ci","utf8_general_ci","begin\
+	declare res varchar(255) default '';\
+	set res = reverse( substring_index ( reverse( substring_index(inStr, format, idx) ), format, 1) );\
+	return res;\
+end"
+"account_book","GetStrLen","FUNCTION","GetStrLen","SQL","CONTAINS_SQL","NO","DEFINER","inStr varchar(1000), format varchar(10)","tinyint(4)","begin\
+	declare unitLen tinyint default 0;\
+	declare resLen tinyint default 0;\
+	declare repLen tinyint default 0;\
+	declare len tinyint default 0;\
+	set unitLen = length(format);\
+	set resLen = length(inStr);\
+	set repLen = length(replace(inStr, format, ''));\
+	set len = (resLen - repLen) / 3;\
+	return len + 1;\
+end","root@localhost","2018-10-23 16:53:05","2018-10-23 16:53:05","STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION","","utf8","utf8_general_ci","utf8_general_ci","begin\
+	declare unitLen tinyint default 0;\
+	declare resLen tinyint default 0;\
+	declare repLen tinyint default 0;\
+	declare len tinyint default 0;\
+	set unitLen = length(format);\
+	set resLen = length(inStr);\
+	set repLen = length(replace(inStr, format, ''));\
+	set len = (resLen - repLen) / 3;\
+	return len + 1;\
+end"
