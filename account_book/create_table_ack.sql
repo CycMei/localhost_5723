@@ -1,5 +1,5 @@
 select * from mysql.proc where db = 'account_book' 
-into outfile 'C:\\Users\\czl65011\\Documents\\Navicat\\MySQL\\servers\\localhost_5723\\account_book\\fun\\fun.txt' 
+into outfile 'F:\\aa\\vc' 
 fields terminated by ',' 
 enclosed by '"' 
 lines terminated by '\r\n';
